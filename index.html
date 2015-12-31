@@ -13,7 +13,7 @@ This is merely a modification and a very small extension of Mrs. Olga Yasovsky's
         <meta name="keywords" content="abhishek, jain, software, developer, java, c++, c, python, html, css, javscript, jquery">
 		<meta name="description" content="Abhishek Jain&#39;s interactive resume. Abhishek Jain is a Software Developer currently working at Cisco in San Jose.">
         <meta name="author" content="Abhishek Jain"> 
-        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
 		<link rel="stylesheet" type="text/css" href="./css/media.css">
 		<!--[if lt IE 9]>
@@ -23,30 +23,30 @@ This is merely a modification and a very small extension of Mrs. Olga Yasovsky's
 		<script type="text/javascript" src="./js/jquery.preload.min.js"></script>
 		<script type="text/javascript" src="./js/functions.js"></script>
   		<style id="holderjs-style" type="text/css"></style>
-</head>
+</head
     <body class=" __plain_text_READY__">
-		<div id="main">
-			<div class="title">
-				<div class="mainTitle">
+		<div id="main" class ="container">
+			<div class="title row">
+				<div class="mainTitle row">
 				<h1>Abhishek Jain</h1>
 				</div>
-				<div class="subTitle">
+				<div class="subTitle row">
 					<h2>Software Developer</h2>
 				</div>
 			</div>
-			<div id="about" class="content">
-				<div class="content-category"><span class="content-icon" id="about-icon"></span>ABOUT ME</div>
-				<div class="content-info">
-					<span class="about-info about-info-left">
-						<span class="sub-title"><h2>Hi, I'm Olga Yasovsky. I'm a Java and Front End Developer from Rehovot, Israel.</h2></span>
-						<span class="sub-desc">I enjoy writing the best code possible to turn complex problems into simple and beautiful solutions.<br>
-						I always strive to write efficient and elegant code, whether it's Server side or Client side.<br>
-						When out of the office, you will find my nose buried in a book, cooking (and running my <a href="http://www.afunim.com/" target="_blank">blog</a>), surfing the web for the latest web innovations and ideas or traveling on the weekends with my beloved family.
-						</span>
-					</span>
-					<span class="about-info about-info-right">
-						<span class="circular" style="opacity: 1; background-image: url(&quot;images/me-hover.png&quot;);"></span>
-					</span>
+			<div class = "row about-me-header no-gutter">
+				<img src="./images/bulb.png" class="img-responsive col-md-2 col-xs-2 about-me-img" alt= "Idea Image">
+				<div class = "col-md-10 col-xs-10 about-me-text">ABOUT ME</div>
+			</div>
+			<div class="row about-info">
+					<img class="my-picture img-responsive col-md-4 col-md-push-8" src="./images/biopic.jpg" alt="This is a picture of me">
+
+				<div class = "col-md-8  col-md-pull-4 what-i-love">
+					<h2 class="my-intro">Hello, I'm Abhishek Jain. I'm a Software Developer currently working at Cisco in San Jose.</h2>
+					<br>
+					<ul class = "me-points">
+						<li>I enjoy learning about simple ways to achieve complex things and dream of one-day automating nearly everything around me.</li> <li>I strive to write efficient and elegant code, and am keen on learning new ways of optimizing my code.</li><li>When out of office, you will find me either tinkering with my Raspberry Pi, listening to music, surfing the web for latest tech innovations and ideas or playing games on my PS4.</li><li>I hope to create something close to an Iron Man armor day some day.</li>
+					</ul>					
 				</div>
 			</div>
 			<div id="education" class="content">
@@ -182,4 +182,5 @@ This is merely a modification and a very small extension of Mrs. Olga Yasovsky's
 			initalize();
 		});
 	</script>
-</body></html>
+</body>
+</html>

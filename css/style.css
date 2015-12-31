@@ -2,7 +2,6 @@
 body {
 	font-family: Oswald, serif;
 	color: #444;
-	/*background-color: #F9F6EE;*/
 	cursor: default;
 }
 div {
@@ -18,7 +17,86 @@ a  img{
 	border: none;
 }
 
-#main {
+
+
+.title{
+	text-align: center;
+	border-bottom: 3px solid #444;
+}
+
+h1{
+	font-size: 5em;
+	font-weight: normal;
+}
+
+.sub-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	display: block;
+	padding-bottom: 20px;
+}
+
+
+/* This is done to remove the gutter between the columns when using 
+   Boot Strap 3*/
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.about-me-header{
+	border-bottom: 3px dotted #444;
+	margin-top: 1%;
+}
+
+.about-me-img {
+	max-width: 30px;
+	max-height: 30px;
+	margin-right: 0.5%;
+	margin-top: 0.65%;
+	
+	
+}
+
+.about-me-text{
+	font-size: 220%;
+	font-weight: normal;
+}
+
+.me-points{
+	font-family: Roboto, serif;
+	font-size: 1.25em;
+}
+
+
+.about-info{
+	border-bottom: 3px solid #444;
+}
+
+.me-points{
+	list-style-type: disc;
+    list-style-position: inside;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+
+
+
+.my-picture{
+	
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+
+
+
+/*#main {
 	width: 100%;
 	margin: 0 auto;
 }
@@ -121,7 +199,7 @@ a  img{
 .timeline .timeline-item .year .label {
 	display:inline-block;
     height: 1.5em;
-    background:#FFFFFF;*/
+    //background:#F9F6EE;
 	padding-right: 10px;
 }
 
@@ -183,7 +261,7 @@ a  img{
 
 .timeline .timeline-item.phantom .marker{
 	/* display: none; */
-	float: none;
+	/*float: none;
 }
 
 .timeline .timeline-item.active .info, .timeline .timeline-item:hover .info {
@@ -242,12 +320,13 @@ a  img{
 	font-size: 5em;
 	font-weight: normal;
 	margin: 0px;
+	border-bottom: 3px solid #444;
 }
 
 .title  div.subTitle h2{
 	font-size: 1.5em;
-	padding: 0 0 10px 0;
-	border-bottom: 3px solid #444;
+	
+	
 }
 
 .content {
@@ -382,9 +461,9 @@ div.skill {
 	height: 0px;
 	border-right: 1px dotted rgba(68, 68, 68, .5);
     -webkit-background-clip: padding-box; /* for Safari */
-    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+    /*background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
-
+/*
 .skills-separator-label {
 	color: #444; 
 	position: absolute;
@@ -505,4 +584,4 @@ a.link , .underline {
 	left: 0px;
 	top: 0px;
 	float: left;
-}
+}*/
