@@ -7,9 +7,9 @@ function initalize() {
 	
 	set_up();
 	mobile_only();
-	bindAboutEvents();
+	/*bindAboutEvents();
 	bindEduEvents();
-	/*bindTimelineEvents();
+	bindTimelineEvents();
 	bindSkillsEvents();
 	bindLikesEvents();*/
 	
