@@ -25,7 +25,9 @@ function mobile_only()
 		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'> 			...more</a>");
 		$('.more-button').css('color','#18919a');
 		$('.more-button').css("text-decoration","none");
-		$()
+		$('.more-button').css("font-size","0.75em");
+		$('.more-button').css("font-weight","normal");
+		$('.more-button').css("padding-left","0.15em");
 		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'> 	...less</a>");
 		$('.less-button').css('color','#18919a');
 		$('.less-button').css("text-decoration","none");
