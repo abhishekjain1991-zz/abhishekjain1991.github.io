@@ -22,11 +22,11 @@ function mobile_only()
 	var mql = window.matchMedia("screen and (max-width: 992px)");
 	if (mql.matches){
 		$('.me-points').not(':animated').hide('fast');
-		$('.my-intro').append("<a href='#' class = 'more-button'> 			...more</a>");
+		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'> 			...more</a>");
 		$('.more-button').css('color','#18919a');
 		$('.more-button').css("text-decoration","none");
-		
-		$('#some-day').append("<a href='#' class = 'less-button'> 	...less</a>");
+		$()
+		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'> 	...less</a>");
 		$('.less-button').css('color','#18919a');
 		$('.less-button').css("text-decoration","none");
 
