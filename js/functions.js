@@ -31,15 +31,15 @@ function mobile_only()
 		$('.less-button').css("text-decoration","none");
 
  		$('.more-button').on("click",function() {			
-			$('.me-points').not(':animated').show('fast');
-			$('.more-button').not(':animated').hide('fast');
-			$('less-button').not(':animated').show('fast');
+			$('.me-points').not(':animated').show('slow');
+			$('.more-button').not(':animated').hide('slow');
+			$('less-button').not(':animated').show('slow');
 			
 		});
 
 		$('.less-button').on("click",function() {	
-			$('.me-points').not(':animated').hide('fast');
-			$('.more-button').not(':animated').show('fast');
+			$('.me-points').not(':animated').hide('slow');
+			$('.more-button').not(':animated').show('slow');
 		});
 		
 		/*, onHoverOut = function() {
