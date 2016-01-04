@@ -22,15 +22,10 @@ function mobile_only()
 	var mql = window.matchMedia("screen and (max-width: 992px)");
 	if (mql.matches){
 		$('.me-points').not(':animated').hide('fast');
-		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'> 			...more</a>");
-		$('.more-button').css('color','#18919a');
-		$('.more-button').css("text-decoration","none");
-		$('.more-button').css("font-size","0.75em");
-		$('.more-button').css("font-weight","100");
-		$('.more-button').css("padding-left","0.15em");
-		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'> 	...less</a>");
-		$('.less-button').css('color','#18919a');
-		$('.less-button').css("text-decoration","none");
+		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'>...more</a>");
+		$('.more-button').css({'color':'#18919a',"text-decoration":"none","font-size":"0.90em","padding-bottom":"0","font-family":"Roboto, serif","padding-left":"0.50em","float":"bottom"});
+		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'>...less</a>");
+		$('.less-button').css({'color':'#18919a',"text-decoration":"none","padding-left":"0.50em"});
 
  		$('.more-button').on("click",function() {			
 			$('.me-points').not(':animated').show('slow');
