@@ -5,17 +5,54 @@ function initalize() {
 	
 	document.addEventListener("touchstart", function(){}, true);
 	
-	preloadImgs();
+	set_up();
+	mobile_only();
 	bindAboutEvents();
 	bindEduEvents();
-	bindTimelineEvents();
+	/*bindTimelineEvents();
 	bindSkillsEvents();
-	bindLikesEvents();
+	bindLikesEvents();*/
 	
 }
 
-function preloadImgs() {
-	$.preload( 'images/me.png', 'images/me-hover.png');
+function mobile_only()
+{
+	
+	//if mobile
+	var mql = window.matchMedia("screen and (max-width: 992px)");
+	if (mql.matches){
+		$('.me-points').not(':animated').hide('fast');
+		$('.my-intro').append("<a href='#' class = 'more-button'> 			...more</a>");
+		$('.more-button').css('color','#18919a');
+		$('.more-button').css("text-decoration","none");
+		
+		$('#some-day').append("<a href='#' class = 'less-button'> 	...less</a>");
+		$('.less-button').css('color','#18919a');
+		$('.less-button').css("text-decoration","none");
+
+ 		$('.more-button').on("click",function() {			
+			$('.me-points').not(':animated').show('fast');
+			$('.more-button').not(':animated').hide('fast');
+			$('less-button').not(':animated').show('fast');
+			
+		});
+
+		$('.less-button').on("click",function() {	
+			$('.me-points').not(':animated').hide('fast');
+			$('.more-button').not(':animated').show('fast');
+		});
+		
+		/*, onHoverOut = function() {
+					};*/
+		
+	//$('.my-intro .my-picture').not(':animated').stop(true, true).fadeTo('slow', 1);
+	//$('.my-intro .my-picture').not(':animated').stop(true, true).fadeTo('slow', 0.5);
+		
+	}
+}
+function set_up() {
+	$.preload( 'images/biopic.jpg');
+
 }
 
 function bindAboutEvents() {
@@ -103,30 +140,13 @@ function bindSkillsEvents() {
 	});
 }
 
-function bindLikesEvents() {
-	$('#social').bind( 'tripleclick', 500, function(event){
-		if ($(this).hasClass('special')) {
-			$(this).find("img").attr('src', 'images/social.png');
-			$(this).removeClass('special');
-		} else {
-			$(this).find("img").attr('src', 'images/mex.png');
-			$(this).addClass('special');
-		}
-    });
-	
-	$(".contact-item a").each(function( index ) {
-		$(this).parent().bind('hover', function(event){
-			$(this).find(".cat-txt, .cont-txt").toggleClass('underline');
-		});
-	});
-}
 
 
 function isTouchDevice() {
 	return ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch));
 }
 
-function getActualHeight(element) {
+/*function getActualHeight(element) {
 	var actualHeight = 0;
 	// try to grab the height of the elem
 	if (element.height() > 0) {
@@ -144,4 +164,4 @@ function getActualHeight(element) {
 	}
 	
 	return actualHeight;
-}
+}*/
