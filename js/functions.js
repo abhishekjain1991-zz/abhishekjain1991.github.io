@@ -24,8 +24,8 @@ function mobile_only()
 		$('.me-points').not(':animated').hide('fast');
 		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'>...more</a>");
 		$('.more-button').css({'color':'#18919a',"text-decoration":"none","font-size":"0.90em","padding-bottom":"0","font-family":"Roboto, serif","padding-left":"0.50em","float":"bottom"});
-		$('#some-day').append("<div><a href='#my-id-intro' class = 'less-button'>...less</a></div>");
-		$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em"});
+		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'>...less</a>");
+		$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em","display":"block"});
 
  		$('.more-button').on("click",function() {			
 			$('.me-points').not(':animated').show('slow');
