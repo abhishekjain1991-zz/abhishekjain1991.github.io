@@ -5,9 +5,9 @@ function initalize() {
 	
 	set_up();
 	mobile_or_desktop();
-	/*bindAboutEvents();
+	bindAboutEvents();
 	bindEduEvents();
-	bindTimelineEvents();
+	/*bindTimelineEvents();
 	bindSkillsEvents();
 	bindLikesEvents();*/
 	
@@ -41,7 +41,15 @@ function about_me_mobile()
 	});
 }
 function set_up() {
-	$.preload( 'images/biopic.jpg');
+	$.preload( 'images/biopic.jpg', 'images/bachellors-icon.png', 'images/graduation-icon.png','images/online.png');
+	$('.my-picture').fadeTo('slow', 0.7);
+	$('.masters-img').fadeTo('slow', 0.7);
+	$('.bachellors-img').fadeTo('slow', 0.7);
+	$('.online-img').fadeTo('slow', 0.7);
+	$('.masters-sub-section').hide('fast');
+	$('.online-sub-section').hide('fast');
+	$('.bachellors-sub-section').hide('fast');
+
 }
 
 function bindAboutEvents() {
@@ -56,19 +64,38 @@ function bindAboutEvents() {
 }
 
 function bindEduEvents() {
-	var onHover = function() {
-			$('.edu-item .edu-icon').not(':animated').stop(true, true).fadeTo('slow', 1);
-			$('.content-desc-additional').not(':animated').show('fast');
-	}, onHoverOut = function() {
-			$('.edu-item .edu-icon').not(':animated').stop(true, true).fadeTo('slow', 0.5);
-			$('.content-desc-additional').not(':animated').hide('fast');
+	var onHover_masters = function() {
+			$('.masters-img').fadeTo('slow', 1);
+			$('.masters-sub-section').show('fast');
+	}, onHoverOut_masters = function() {
+			$('.masters-img').fadeTo('slow', 0.75);
+			$('.masters-sub-section').hide('fast');
 	};
 	
-	$('#education').hover(onHover, onHoverOut);
+	$('.masters-img').hover(onHover_masters, onHoverOut_masters);
+
+	var onHover_bachellors = function() {
+			$('.bachellors-img').fadeTo('slow', 1);
+			$('.bachellors-sub-section').show('fast');
+	}, onHoverOut_bachellors = function() {
+			$('.bachellors-img').fadeTo('slow', 0.75);
+			$('.bachellors-sub-section').hide('fast');
+	};
 	
-	if (isTouchDevice()) {
-		$('#education').bind("touchstart", onHover).bind("touchend", onHoverOut);
-	}
+	$('.bachellors-img').hover(onHover_bachellors, onHoverOut_bachellors);
+
+	var onHover_online = function() {
+			$('.online-img').fadeTo('slow', 1);
+			$('.online-sub-section').show('fast');
+	}, onHoverOut_online = function() {
+			$('.online-img').fadeTo('slow', 0.75);
+			$('.online-sub-section').hide('fast');
+	};
+	
+	$('.online-img').hover(onHover_online, onHoverOut_online);
+
+	
+	
 }
 
 function bindTimelineEvents() {
