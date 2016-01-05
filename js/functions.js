@@ -3,10 +3,8 @@ var timelineHeight = 0;
 
 function initalize() {
 	
-	document.addEventListener("touchstart", function(){}, true);
-	
 	set_up();
-	mobile_only();
+	mobile_or_desktop();
 	/*bindAboutEvents();
 	bindEduEvents();
 	bindTimelineEvents();
@@ -15,40 +13,38 @@ function initalize() {
 	
 }
 
-function mobile_only()
-{
-	
-	//if mobile
+function mobile_or_desktop(){
 	var mql = window.matchMedia("screen and (max-width: 992px)");
 	if (mql.matches){
-		$('.me-points').not(':animated').hide('fast');
-		$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'>...more</a>");
-		$('.more-button').css({'color':'#18919a',"text-decoration":"none","padding-bottom":"0","font-family":"Roboto, serif","font-size":"0.90em","padding-left":"0.50em"});
-		$('#some-day').append("<a href='#my-id-intro' class = 'less-button'>...less</a>");
-		$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em","display":"block"});
-
- 		$('.more-button').on("click",function() {			
-			$('.me-points').show('slow');
-			$('.more-button').hide('slow');
-			$('less-button').show('slow');
-			
-		});
-
-		$('.less-button').on("click",function() {	
-			$('.me-points').hide('slow');
-			$('.more-button').show('slow');
-		});
-		
-		/*, onHoverOut = function() {
-					};*/
-		
-	//$('.my-intro .my-picture').not(':animated').stop(true, true).fadeTo('slow', 1);
-	//$('.my-intro .my-picture').not(':animated').stop(true, true).fadeTo('slow', 0.5);
-		
+		about_me_mobile();
 	}
+	else{
+		bindAboutEvents();
+	}
+}
+function about_me_mobile()
+{
+	$('.me-points').not(':animated').hide('fast');
+	$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'>...more</a>");
+	$('.more-button').css({'color':'#18919a',"text-decoration":"none","padding-bottom":"0","font-family":"Roboto, serif","font-size":"0.90em","padding-left":"0.50em"});
+	$('#some-day').append("<a href='#my-id-intro' class = 'less-button'>...less</a>");
+	$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em","display":"block"});
+ 	$('.more-button').on("click",function() {			
+		$('.me-points').show('slow');
+		$('.more-button').hide('slow');
+		$('less-button').show('slow');			
+	});
+
+	$('.less-button').on("click",function() {	
+		$('.me-points').hide('slow');
+		$('.more-button').show('slow');
+	});
 }
 function set_up() {
 	$.preload( 'images/biopic.jpg');
+}
+
+function bindAboutEvents() {
 	var onHover = function() {
 			$('.my-picture').fadeTo('slow', 1);
 			
@@ -57,29 +53,6 @@ function set_up() {
 	};
 	
 	$('.about-info').hover(onHover, onHoverOut);
-
-	if (isTouchDevice()) {
-		$('about-info').bind("touchstart", onHover).bind("touchend", onHoverOut);
-	}
-
-
-}
-
-function bindAboutEvents() {
-	var onHover = function() {
-			$('.circular').css('background-image', 'url(images/me-hover.png)');
-			$('.circular').not(':animated').stop(true, true).fadeTo('slow', 1);
-			
-	}, onHoverOut = function() {
-			$('.circular').css('background-image', 'url(images/me.png)');
-			$('.circular').not(':animated').stop(true, true).fadeTo('slow', 0.7);
-	};
-	
-	$('#about').hover(onHover, onHoverOut);
-	
-	if (isTouchDevice()) {
-		$('#about').bind("touchstart", onHover).bind("touchend", onHoverOut);
-	}
 }
 
 function bindEduEvents() {
