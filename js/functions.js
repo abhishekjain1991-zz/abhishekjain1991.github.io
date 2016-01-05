@@ -28,15 +28,15 @@ function mobile_only()
 		$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em","display":"block"});
 
  		$('.more-button').on("click",function() {			
-			$('.me-points').not(':animated').show('slow');
-			$('.more-button').not(':animated').hide('slow');
-			$('less-button').not(':animated').show('slow');
+			$('.me-points').show('slow');
+			$('.more-button').hide('slow');
+			$('less-button').show('slow');
 			
 		});
 
 		$('.less-button').on("click",function() {	
-			$('.me-points').not(':animated').hide('slow');
-			$('.more-button').not(':animated').show('slow');
+			$('.me-points').hide('slow');
+			$('.more-button').show('slow');
 		});
 		
 		/*, onHoverOut = function() {
@@ -49,6 +49,14 @@ function mobile_only()
 }
 function set_up() {
 	$.preload( 'images/biopic.jpg');
+	var onHover = function() {
+			$('.my-picture').fadeTo('slow', 1);
+			
+	}, onHoverOut = function() {
+			$('.my-picture').fadeTo('slow', 0.7);
+	};
+	
+	$('.about-info').hover(onHover, onHoverOut);
 
 }
 
