@@ -58,7 +58,15 @@ h1{
 	
 }
 
-.about-me-text{
+.education-img {
+	max-width: 50px;
+	max-height: 50px;
+	margin-right: 0.5%;
+	margin-top: 0.65%;
+		
+}
+
+.about-me-text, .education-text{
 	font-size: 220%;
 	font-weight: normal;
 }
