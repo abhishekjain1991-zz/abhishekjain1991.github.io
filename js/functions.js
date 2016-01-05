@@ -58,6 +58,11 @@ function set_up() {
 	
 	$('.about-info').hover(onHover, onHoverOut);
 
+	if (isTouchDevice()) {
+		$('about-info').bind("touchstart", onHover).bind("touchend", onHoverOut);
+	}
+
+
 }
 
 function bindAboutEvents() {
