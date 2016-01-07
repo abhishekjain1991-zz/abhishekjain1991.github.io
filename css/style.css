@@ -46,24 +46,6 @@ h1{
 	
 }
 
-.education-img {
-	max-width: 50px;
-	max-height: 50px;
-	margin-right: 0.5%;	
-}
-
-.masters-img, .bachellors-img, .online-img{	
-	max-width: 100px;
-	max-height: 100px;
-	border-radius: 70%;
-}
-
-.masters-text, .bachellors-text, .online-text{
-	font-size: 150%;
-	font-weight: normal;
-	margin-bottom: 3%;
-}
-
 .about-me-text, .education-text{
 	font-size: 220%;
 	font-weight: normal;
@@ -86,13 +68,31 @@ h1{
     margin-right: auto;
 } 
 
+.education-img {
+	max-width: 50px;
+	max-height: 50px;
+	margin-right: 0.5%;	
+}
+
+.education-type-img{	
+	max-width: 100px;
+	max-height: 100px;
+	border-radius: 70%;
+}
+
+.education-type-text{
+	font-size: 150%;
+	font-weight: normal;
+	margin-bottom: 3%;
+}
+
 .college-name, .college-degree, .college-years{
 	margin-left: 1%;
 	margin-top: 2%;
 } 
 
 
-.masters-sub-section, .bachellors-sub-section, .online-sub-section{
+.sub-section{
 	background: #ffffff; 
 	box-shadow: inset 0px 15px 30px 5px black;
 	position: relative;

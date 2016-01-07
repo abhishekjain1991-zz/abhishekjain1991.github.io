@@ -58,101 +58,16 @@ var education={
  	]
 };
 
-var education_type = '<div class ="%type% col-md-6 col-xs-6"></div>';
-var education_type_header = '<div class = "%type%-header row no-gutter"></div>';
-var education_icon = '<img src="./images/%image-name%.png" class="%type%-img img-responsive col-md-3 col-xs-3">';
-var education_text = '<div class = "%type%-text col-md-9 col-xs-9"></div>';
+var education_type = '<div class = "education-level col-md-6 col-xs-6" id = "%type%"></div>';
+var education_type_header = '<div class = "education-type-header row no-gutter"></div>';
+var education_icon = '<img src="./images/%image-name%.png" id = "%type%-img" class="education-type-img img-responsive col-md-3 col-xs-3">';
+var education_text = '<div class = "education-type-text col-md-9 col-xs-9"></div>';
 var college_name = '<h3 class = "college-name">%data%</h3>'
 var college_degree = '<h4 class = "college-degree">%data%</h4>'
 var college_time = '<h4 class = "college-years">%data%</h4>'
 
 
-function initalize() {
-	
-	set_up();
-	mobile_or_desktop();
-			/*bindTimelineEvents();
-	bindSkillsEvents();
-	bindLikesEvents();*/
-	
-}
 
-
-
-function mobile_or_desktop(){
-	
-	var mql = window.matchMedia("screen and (max-width: 992px)");
-	if (mql.matches){
-		about_me_mobile();
-	}
-	else{
-		bindAboutEvents();
-	}
-	create_education_details();
-	bindEduEvents();
-
-}
-
-function create_education_details(){
-	var count = education["schools"].length;
-	var row = "education";
-	for (index in education["schools"]){
-		if(index%2 == 0){
-			$(".education-holder").append('<div class="education row"></div>');
-		}
-		var type = education["schools"][index]["Type"];
-		var icon = education["schools"][index]["Icon"];
-		var name = education["schools"][index]["Name"];
-		var dates = education["schools"][index]["Dates"];
-		var education_string = education["schools"][index]["Degree"]+"  "+education["schools"][index]["Major"];
-		$("."+row+":last").append(education_type.replace("%type%",type));
-		$("."+type).append(education_type_header.replace("%type%",type));
-		$("."+type+"-header").append(education_icon.replace("%image-name%",icon).replace("%type%",type));
-		$("."+type+"-header").append(education_text.replace("%type%",type));
-		$("."+type+"-text").append(college_name.replace("%data%",name));
-		$("."+type+"-text").append(college_time.replace("%data%",education_string));
-		$("."+type+"-text").append(college_degree.replace("%data%",dates));
-	}
-
-	$('.masters-img').fadeTo('slow', 0.7);
-	$('.bachellors-img').fadeTo('slow', 0.7);
-	$('.online-img').fadeTo('slow', 0.7);
-	
-	
-	for (var index = 0 ; index<education["schools"].length; index++){
-		var append_after = "";
-		var type = education["schools"][index]["Type"];
-		console.log(index);
-		if(index === count-1 || index%2 === 1){
-			append_after = "."+education["schools"][index]["Type"];			
-		}else{
-			append_after = "."+education["schools"][index+1]["Type"];
-		}
-		console.log(education["schools"][index]["Type"]);
-		$('<div class = "'+type+'-sub-section row"></div>').insertAfter($(append_after).parent());
-		if(index%2 === 0){
-			$('.'+type+'-sub-section').append('<div class="up-arrow-left"></div>');
-		}else{
-			$('.'+type+'-sub-section').append('<div class="up-arrow-right"></div>');
-		}
-		$('.'+type+'-sub-section').append('<br>');
-		$('.'+type+'-sub-section').append('<div class = "study-details col-md-6 col-xs-6"></div>');
-		$('.'+type+'-sub-section .study-details').append('<h4>GPA: '+education["schools"][index]["GPA"]+'</h4>');
-		$('.'+type+'-sub-section .study-details').append('<h4>Minor: '+education["schools"][index]["Minor"]+'</h4>');
-		$('.'+type+'-sub-section .study-details').append('<h4>Location: '+education["schools"][index]["Location"]+'</h4>');
-		$('.'+type+'-sub-section').append('<div class = "courses col-md-6 col-xs-6"></div>');
-		$('.'+type+'-sub-section .courses').append('<h4 class="course-list">Courses Taken</h4>');
-		$('.'+type+'-sub-section .courses').append('<ul></ul>');
-		for(element_number in  education["schools"][index]['courses']){
-			$('.'+type+'-sub-section .courses ul').append('<li>'+education["schools"][index]["courses"][element_number]+'</li>');
-		}
-		$('.'+type+'-sub-section').append('<br>');
-	}
-
-	$('.masters-sub-section').hide('fast');
-	$('.online-sub-section').hide('fast');
-	$('.bachellors-sub-section').hide('fast');
-}
 
 function about_me_mobile()
 {
@@ -172,11 +87,57 @@ function about_me_mobile()
 		$('.more-button').show('slow');
 	});
 }
+
+function create_education_type_subsection(index, type){
+	$(".education-holder").append('<div class = "sub-section '+type+'-section row"></div>');
+	if(index%2 === 0){
+		$('.sub-section:last').append('<div class="up-arrow-left"></div>');
+	}else{
+		$('.sub-section:last').append('<div class="up-arrow-right"></div>');
+	}
+	$('.sub-section:last').append('<br>');
+	$('.sub-section:last').append('<div class = "study-details col-md-6 col-xs-6"></div>');
+	$('.study-details:last').append('<h4>GPA: '+education["schools"][index]["GPA"]+'</h4>');
+	$('.study-details:last').append('<h4>Minor: '+education["schools"][index]["Minor"]+'</h4>');
+	$('.study-details:last').append('<h4>Location: '+education["schools"][index]["Location"]+'</h4>');
+	$('.sub-section:last').append('<div class = "courses col-md-6 col-xs-6"></div>');
+	$('.courses:last').append('<h4 class="course-list">Courses Taken</h4>');
+	$('.courses:last').append('<ul></ul>');
+	for(element_number in  education["schools"][index]['courses']){
+		$('ul:last').append('<li>'+education["schools"][index]["courses"][element_number]+'</li>');
+	}
+	$('.sub-section:last').append('<br>');
+}
+
+function create_education_details(){
+
+	for (var index = 0 ; index<education["schools"].length; index++){
+		if(index%2 === 0){
+			$(".education-holder").append('<div class="education row"></div>');
+		}
+		var type = education["schools"][index]["Type"];
+		var icon = education["schools"][index]["Icon"];
+		var name = education["schools"][index]["Name"];
+		var dates = education["schools"][index]["Dates"];
+		var education_string = education["schools"][index]["Degree"]+"  "+education["schools"][index]["Major"];
+		$(".education:last").append(education_type.replace("%type%",type));
+		$(".education-level:last").append(education_type_header);
+		$(".education-type-header:last").append(education_icon.replace("%image-name%",icon).replace("%type%",type));
+		$(".education-type-header:last").append(education_text);
+		$(".education-type-text:last").append(college_name.replace("%data%",name));
+		$(".education-type-text:last").append(college_time.replace("%data%",education_string));
+		$(".education-type-text:last").append(college_degree.replace("%data%",dates));	
+		create_education_type_subsection(index, type);
+	}
+
+	$('.education-type-img').fadeTo('slow', 0.7);
+	$('.sub-section').hide('fast');
+}
+
+
 function set_up() {
 	$.preload( 'images/biopic.jpg', 'images/bachellors-icon.png', 'images/graduation-icon.png','images/online.png');
 	$('.my-picture').fadeTo('slow', 0.7);
-
-
 }
 
 function bindAboutEvents() {
@@ -191,41 +152,51 @@ function bindAboutEvents() {
 }
 
 function bindEduEvents() {
-	var onHover_masters = function() {
-			$('.masters-img').fadeTo('slow', 1);
-			$('.masters-sub-section').show('fast');
-	}, onHoverOut_masters = function() {
-			$('.masters-img').fadeTo('slow', 0.75);
-			$('.masters-sub-section').hide('fast');
-	};
 	
-	$('.masters-img').hover(onHover_masters, onHoverOut_masters);
-
-	var onHover_bachellors = function() {
-			$('.bachellors-img').fadeTo('slow', 1);
-			$('.bachellors-sub-section').show('fast');
-	}, onHoverOut_bachellors = function() {
-			$('.bachellors-img').fadeTo('slow', 0.75);
-			$('.bachellors-sub-section').hide('fast');
-	};
+	//Event delegation using on
 	
-	$('.bachellors-img').hover(onHover_bachellors, onHoverOut_bachellors);
-
-	var onHover_online = function() {
-			$('.online-img').fadeTo('slow', 1);
-			$('.online-sub-section').show('fast');
-	}, onHoverOut_online = function() {
-			$('.online-img').fadeTo('slow', 0.75);
-			$('.online-sub-section').hide('fast');
-	};
-	
-	$('.online-img').hover(onHover_online, onHoverOut_online);
-
-	
+	$('.education').on( 'mouseenter', '.education-level', function(event){
+		var type = this.id;
+		$('#'+type+'-img').fadeTo('slow', 1);
+		$('.'+type+'-section').show('fast');
+		
+	}).on('mouseleave', '.education-level', function(event){
+		var type = this.id;
+		$('#'+type+'-img').fadeTo('slow', 0.75);
+		$('.'+type+'-section').hide('fast');
+	});
 	
 }
 
-function bindTimelineEvents() {
+
+function mobile_or_desktop(){
+	
+	var mql = window.matchMedia("screen and (max-width: 992px)");
+	if (mql.matches){
+		about_me_mobile();
+	}
+	else{
+		bindAboutEvents();
+	}
+	create_education_details();
+	bindEduEvents();
+
+}
+
+
+function initalize() {
+	
+	set_up();
+	mobile_or_desktop();
+			/*bindTimelineEvents();
+	bindSkillsEvents();
+	bindLikesEvents();*/
+	
+}
+
+
+
+/*function bindTimelineEvents() {
 
 	// Decorate
 	//$(".timeline-item.last .info ").append("<span class='small-dot'/>");
