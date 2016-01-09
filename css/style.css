@@ -30,7 +30,7 @@ h1{
     padding-left:0;
 }
 
-.about-me-header{
+.my-education{
 	border-bottom: 3px dotted #444;
 	margin-top: 1%;
 	margin-bottom: 1%;
@@ -40,7 +40,7 @@ h1{
 .about-me-img {
 	max-width: 30px;
 	max-height: 30px;
-	margin-right: 0.5%;
+	margin-right: 0%;
 	margin-top: 0.65%;
 	
 	
@@ -68,10 +68,18 @@ h1{
     margin-right: auto;
 } 
 
-.education-img {
-	max-width: 50px;
-	max-height: 50px;
-	margin-right: 0.5%;	
+.education-section-img {
+	max-width: 45px;
+	max-height: 45px;
+	margin-right: 0.5%;
+	padding-top: 0.3%;	
+}
+
+.experience-section-img{
+	max-width: 33px;
+	max-height: 33px;
+	margin-right: 0.5%;
+	margin-top: 0.5%;
 }
 
 .education-type-img{	
@@ -123,67 +131,83 @@ h1{
 	left:2.5%;
 }
 
-
-
-
-
-
-
-
-
-
-/*#main {
-	width: 100%;
-	margin: 0 auto;
-}  
-
-.left {
-	float: left;
+.about-me-header{
+	border-bottom: 3px dotted #444;
+	padding-top: 0.5%;
 }
 
-.right {
-	float: right;
+.my-experience{
+	border-bottom: 3px dotted #444;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border-top: 3px solid #444;
+	padding-top: 0.5%;
 }
 
-.about-info {
-	width: 50%;
-	display: table-cell;
-	padding: 0 30px;
-	vertical-align: middle;
+
+
+.tl-entry{
+	height: 2.5em;
+	border-bottom: 3px dotted #F69A33;
 }
 
-.about-info-left{
-	width: 70%;
+.tl-date{
+	background-color: white;
+	color:#F69A33;
+	padding-right: 1.5%;
 }
 
-.about-info-right{
-	width: 30%;
+.outer-dot{
+	float:right;
+	background-color: #F9F6EE;
+    border: 6px solid #aaa;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    margin-right: -26px;
+    margin-top: -6px;
+
+
 }
 
-.about-info .sub-title h2 {
-	font-size: 1.5em;
-	font-weight: bold;
-	display: block;
-	padding-bottom: 20px;
+.inner-dot{
+    background-color: #F69A33;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.2);
+    display: block;
+    border: 4px solid white;
+    height: 32px;
+    width: 32px;
+    border-radius: 100px;
+    float: right;
+    margin-right: -2px;
+    margin-top: -2px;
 }
 
-.about-info .sub-desc {
-	font-family: Roboto, serif;
-	width: 50%;
-	font-weight: normal;
+.work-details-present{
+	height: 1em;
 }
-
-.about-info  .circular{
-	width: 200px;
-	height: 186px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-	display: inline-block;
+.company-name{
 	margin-left: 30px;
-	opacity: 0.7;
-	position: relative;
-	background: url('../images/me.png') no-repeat;
+}
+.work-details{
+	margin-top: 18px;
+	margin-left:4px;
+	border-left: 3px solid #aaa;
+	padding-left: 30px
+}
+
+.work-items-list{
+	margin-left: 25px;
+}
+
+.work-details-old{
+	height: 1em;
+	margin-left:4px;
+	border-left: 3px solid #aaa;
+}
+
+/*.time-line{
+	overflow: hidden;
 }
 
 .timeline {
@@ -343,6 +367,8 @@ h1{
 	left: -45px;
 }
 
+
+/*
 .title, .content {
 	width: 65%;
     margin: 0 auto;
