@@ -1,5 +1,4 @@
-var outerDivHeight = 0;
-var timelineHeight = 0;
+// Web page data
 
 var education={
  	schools:[
@@ -58,16 +57,83 @@ var education={
  	]
 };
 
+var work_experience = {
+	companies : [
+	{
+		Name: "Cisco",
+		Time: "Present - June 2015",
+		Role: "Software Engineer",
+		Responsibilities: ["Learn about and enhance Cisco's IOS-XR OS for the new NCS-5500 series router.",
+		"Add new Clis to show and visualize router stats.","Create a new packet decoding library using Cython and C to decode live packets.",
+		"Create a high-speed packet-filter to filter out packets from high-speed traffic flows.",
+		"Understand and enhance the driver code.","Created scripts to directly programme the router hardware.",
+		"Automate the procedure of creating upgrade packages and sending it to the Software Test Engineer that required the upgrade package."],
+		Languages_used:"C, Python, Cyhton",
+		Location:"San Jose, California, United States"
+	},
+	{
+		Name: "Ericsson",
+		Time: "August 2014 – December 2014",
+		Role: "Software Engineering Intern",
+		Responsibilities: ["Worked with the line card software engineering team.","Redesigning the Unit Test Test Framework.",
+		"Rewriting the Unit test Framework.","Adding plugins and libraries to the Unit Test Framework.",
+		"Using SWIG to create python wrappers for C code.","Adding ability to execute C kernel code using the Unit Test Framework (which is written in Python).",
+		"Adding support for MPLS, IPv4, IPv6 and LAG test cases.","Enhance packet generation and evaluation framework so as to make it compatible with the new libraries and plugins and the new framework as a whole.",
+		"Modifying the framework to make Test scripts as short and simple as possible.","Adding ability to visualize various statistics.",
+		"Fixing bugs and writing example test cases to be used with Framework."],
+		Languages_used:"C, Python",
+		Location:"San Jose, California, United States"
+	},
+	{
+		Name: "Georgia Tech Research Institute",
+		Time: "May 2014 - August 2014",
+		Role: "Software Engineering Intern",
+		Responsibilities: ["Worked on the research project named Novel and Efficient Technologies for Content Aware Computational Hierarchies (NEXTCACHE).", 
+		"Adding new features to the existing Gem5 framework.","Studied existing pre-fetchers in the Gem 5 framework.","Responsible for completely automating the build process by using Jenkins and Bash scripting.",
+		"Adding new features to the existing launch scripts.",
+		"Developing real time test cases by using software tools such as Pocket Sphinx."],
+		Languages_used:"C, C++, Python",
+		Location:"Atlanta, Georgia, United States"
+	},
+	{
+		Name: "Immense Engineering Research Group",
+		Time: "August 2012 - June 2013",
+		Role: "Director, Software Engineering <p></p><p>Started a small company based in Mumbai (India) that helped Engineering and final year diploma students with their academic projects. Worked on several projects mentioned below.</p>",
+		Responsibilities: ["Design and development of a automaton.", "Remote controlled skate-board.", "Cellphone for the blind.",  
+		"Design and implementation of Pressure control system for Brace Treatment of Scoliosis.", "Coin-based mobile-charging system.", "Chain pulling detection system for trains in India.", "Autoamted Anti-Tampering system."],
+		Languages_used:"C++, C, Arduino-Uno-Ide, Matlab, Python",
+		Location:"Mumbai, Maharashtra, India"
+	},
+	{
+		Name: "Godrej",
+		Time: "December 2011 - April 2012",
+		Role: "Plc algorithm development and implementation Intern",
+		Responsibilities: ["Development and implementation of algorithms for PLCs used at GODREJ's manufacturing plant in Mumbai. Worked on the Simens s7-1200 and s7-300 PLC."],
+		Languages_used:"SIMATIC-STEP-7",
+		Location:"Mumbai, Maharashtra, India"
+	}
+	]
+}
+
+// Variables to format the above web-page data 
+
 var education_type = '<div class = "education-level col-md-6 col-xs-6" id = "%type%"></div>';
 var education_type_header = '<div class = "education-type-header row no-gutter"></div>';
 var education_icon = '<img src="./images/%image-name%.png" id = "%type%-img" class="education-type-img img-responsive col-md-3 col-xs-3">';
 var education_text = '<div class = "education-type-text col-md-9 col-xs-9"></div>';
-var college_name = '<h3 class = "college-name">%data%</h3>'
-var college_degree = '<h4 class = "college-degree">%data%</h4>'
-var college_time = '<h4 class = "college-years">%data%</h4>'
+var college_name = '<h3 class = "college-name">%data%</h3>';
+var college_degree = '<h4 class = "college-degree">%data%</h4>';
+var college_time = '<h4 class = "college-years">%data%</h4>';
+var time_in_company = '<span class = "tl-date">%time_span%</span>';
+var company_name = '<span class = "company-name">%cname%</span>';
+var company_details = '<br><h4>%location%</h4><h4>%role%</h4>';
+var contributions = '<h4>Tasks Performed:</h4>';
+var languages_used = '<h4>%languages_used%</h4>';
+var single_responsibility = '<li>%single_responsibility%</li>';
 
 
 
+//Functions for creating the data
 
 function about_me_mobile()
 {
@@ -87,6 +153,7 @@ function about_me_mobile()
 		$('.more-button').show('slow');
 	});
 }
+
 
 function create_education_type_subsection(index, type){
 	$(".education-holder").append('<div class = "sub-section '+type+'-section row"></div>');
@@ -134,11 +201,53 @@ function create_education_details(){
 	$('.sub-section').hide('fast');
 }
 
+function create_work_experience_data(){
+	for (var index = 0 ; index<work_experience["companies"].length; index++){
+		$('.work-experience-holder').append("<div class = 'work-entry' id = '"+index+"'></div>");
+		$('.work-entry:last').append('<div class ="time-line row no-gutter"></div>');
+		$('.time-line:last').append('<div class = "tl-entry col-xs-5 col-md-5 "></div>');
+		$('.tl-entry:last').append('<h3></h3>');
+		$('h3:last').append(time_in_company.replace('%time_span%',work_experience["companies"][index]["Time"]));
+		$('h3:last').append('<span class = "outer-dot"></span>');
+		$('.outer-dot:last').append('<span class = "inner-dot"></span>');
+		var work_details_type = "";
+		if(index === 0){
+			work_details_type = "work-details-present";
+		}
+		else{
+			work_details_type = "work-details-old";
+		}
+		$('.time-line:last').append('<div class = "'+work_details_type+' col-md-6 col-xs-6"></div>');
+		$('.'+work_details_type+':last').append('<h3></h3>');
+		$('h3:last').append(company_name.replace('%cname%',work_experience["companies"][index]["Name"]));
+		$('.work-entry:last').append('<div class ="work-info row no-gutter"></div>');
+		$('.work-info:last').append('<div class = "col-xs-5 col-md-5 "></div>');
+		$('.work-info:last').append('<div class = "work-details col-md-6 col-xs-6"></div>');
+		$('.work-details:last').append('<div class = "work-items-list"></div>');
+		$('.work-items-list:last').append(company_details.replace('%role%',work_experience["companies"][index]["Role"]).replace('%location%',work_experience["companies"][index]["Location"]));
+		$('.work-items-list:last').append(contributions);
+		$('.work-items-list:last').append('<ul class = "responsibility-list"></ul>');
+		for (work_items = 0; work_items<work_experience["companies"][index]["Responsibilities"].length;work_items++){
+			$('.responsibility-list:last').append(single_responsibility.replace('%single_responsibility%',work_experience["companies"][index]["Responsibilities"][work_items]));
+		}
+		$('.work-items-list:last').append('<br><br>');
+	}
 
-function set_up() {
-	$.preload( 'images/biopic.jpg', 'images/bachellors-icon.png', 'images/graduation-icon.png','images/online.png');
-	$('.my-picture').fadeTo('slow', 0.7);
+	$('.work-entry').fadeTo('slow', 0.5);
+	//This is for the last dot
+
+	$('.work-experience-holder').append("<div class = 'work-entry'></div>");
+	$('.work-entry:last').append('<div class ="time-line row no-gutter"></div>');
+	$('.time-line:last').append('<div class = "tl-entry-last col-xs-5 col-md-5 "></div>');
+	$('.tl-entry-last:last').append('<h3></h3>');
+	$('h3:last').append('<span class = "outer-dot-last"></span>');
+	$('.time-line:last').append('<div class = "'+work_details_type+' col-md-6 col-xs-6"></div>');
+	$('.'+work_details_type+':last').append('<h3></h3>');
+
+	
 }
+
+//functions for creating the event handlers
 
 function bindAboutEvents() {
 	var onHover = function() {
@@ -168,6 +277,24 @@ function bindEduEvents() {
 	
 }
 
+function bindExperienceEvents(){
+		$('.work-experience-holder').on( 'mouseenter', '.work-entry', function(event){
+		var entry_id = this.id;
+		console.log('#'+entry_id);
+		$('#'+entry_id).fadeTo('slow',1);
+		
+	}).on('mouseleave', '.work-entry', function(event){
+		var entry_id = this.id;
+		$('#'+entry_id).fadeTo('slow',0.5);
+	});
+}
+
+//functions for rendering the web page
+
+function set_up() {
+	$.preload( 'images/biopic.jpg', 'images/bachellors-icon.png', 'images/graduation-icon.png','images/online.png');
+	$('.my-picture').fadeTo('slow', 0.7);
+}
 
 function mobile_or_desktop(){
 	
@@ -179,7 +306,9 @@ function mobile_or_desktop(){
 		bindAboutEvents();
 	}
 	create_education_details();
+	create_work_experience_data();
 	bindEduEvents();
+	bindExperienceEvents();
 
 }
 
