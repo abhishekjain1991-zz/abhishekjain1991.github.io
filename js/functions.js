@@ -61,7 +61,7 @@ var work_experience = {
 	companies : [
 	{
 		Name: "Cisco",
-		Time: "Present - June 2015",
+		Time: "Present - Jun 2015",
 		Role: "Software Engineer",
 		Responsibilities: ["Learn about and enhance Cisco's IOS-XR OS for the new NCS-5500 series router.",
 		"Add new Clis to show and visualize router stats.","Create a new packet decoding library using Cython and C to decode live packets.",
@@ -73,7 +73,7 @@ var work_experience = {
 	},
 	{
 		Name: "Ericsson",
-		Time: "August 2014 – December 2014",
+		Time: "Aug 2014 – Dec 2014",
 		Role: "Software Engineering Intern",
 		Responsibilities: ["Worked with the line card software engineering team.","Redesigning the Unit Test Test Framework.",
 		"Rewriting the Unit test Framework.","Adding plugins and libraries to the Unit Test Framework.",
@@ -86,7 +86,7 @@ var work_experience = {
 	},
 	{
 		Name: "Georgia Tech Research Institute",
-		Time: "May 2014 - August 2014",
+		Time: "May 2014 - Aug 2014",
 		Role: "Software Engineering Intern",
 		Responsibilities: ["Worked on the research project named Novel and Efficient Technologies for Content Aware Computational Hierarchies (NEXTCACHE).", 
 		"Adding new features to the existing Gem5 framework.","Studied existing pre-fetchers in the Gem 5 framework.","Responsible for completely automating the build process by using Jenkins and Bash scripting.",
@@ -97,16 +97,16 @@ var work_experience = {
 	},
 	{
 		Name: "Immense Engineering Research Group",
-		Time: "August 2012 - June 2013",
+		Time: "Aug 2012 - Jun 2013",
 		Role: "Director, Software Engineering <p></p><p>Started a small company based in Mumbai (India) that helped Engineering and final year diploma students with their academic projects. Worked on several projects mentioned below.</p>",
-		Responsibilities: ["Design and development of a automaton.", "Remote controlled skate-board.", "Cellphone for the blind.",  
-		"Design and implementation of Pressure control system for Brace Treatment of Scoliosis.", "Coin-based mobile-charging system.", "Chain pulling detection system for trains in India.", "Autoamted Anti-Tampering system."],
+		Responsibilities: ["Design and development of an automaton.", "Remote controlled skate-board.", "Cellphone for the blind.",  
+		"Design and implementation of Pressure control system for Brace Treatment of Scoliosis.", "Coin-based mobile-charging system.", "Chain pulling detection system for trains in India.", "Automated Anti-Tampering system."],
 		Languages_used:"C++, C, Arduino-Uno-Ide, Matlab, Python",
 		Location:"Mumbai, Maharashtra, India"
 	},
 	{
 		Name: "Godrej",
-		Time: "December 2011 - April 2012",
+		Time: "Dec 2011 - Apr 2012",
 		Role: "Plc algorithm development and implementation Intern",
 		Responsibilities: ["Development and implementation of algorithms for PLCs used at GODREJ's manufacturing plant in Mumbai. Worked on the Simens s7-1200 and s7-300 PLC."],
 		Languages_used:"SIMATIC-STEP-7",
@@ -125,8 +125,8 @@ var college_name = '<h3 class = "college-name">%data%</h3>';
 var college_degree = '<h4 class = "college-degree">%data%</h4>';
 var college_time = '<h4 class = "college-years">%data%</h4>';
 var time_in_company = '<span class = "tl-date">%time_span%</span>';
-var company_name = '<span class = "company-name">%cname%</span>';
-var company_details = '<br><h4>%location%</h4><h4>%role%</h4>';
+var company_name = '<p class = "company-name">%cname%</p>';
+var company_details = '<h4>%location%</h4><h4>%role%</h4>';
 var contributions = '<h4>Tasks Performed:</h4>';
 var languages_used = '<h4>%languages_used%</h4>';
 var single_responsibility = '<li>%single_responsibility%</li>';
@@ -203,9 +203,8 @@ function create_education_details(){
 
 function create_work_experience_data(){
 	for (var index = 0 ; index<work_experience["companies"].length; index++){
-		$('.work-experience-holder').append("<div class = 'work-entry' id = '"+index+"'></div>");
-		$('.work-entry:last').append('<div class ="time-line row no-gutter"></div>');
-		$('.time-line:last').append('<div class = "tl-entry col-xs-5 col-md-5 "></div>');
+		$('.work-experience-holder').append("<div class = 'work-entry row no-gutter' id = "+index+"></div>");
+		$('.work-entry:last').append('<div class = "tl-entry col-xs-4 col-md-4"></div>');
 		$('.tl-entry:last').append('<h3></h3>');
 		$('h3:last').append(time_in_company.replace('%time_span%',work_experience["companies"][index]["Time"]));
 		$('h3:last').append('<span class = "outer-dot"></span>');
@@ -217,12 +216,13 @@ function create_work_experience_data(){
 		else{
 			work_details_type = "work-details-old";
 		}
-		$('.time-line:last').append('<div class = "'+work_details_type+' col-md-6 col-xs-6"></div>');
+		$('.work-entry:last').append('<div class = "'+work_details_type+' col-md-7 col-xs-7 divider divider_extended_'+index+'"></div>');
+		$('.work-details-old').css({'border-left': '3px solid #aaa'});
 		$('.'+work_details_type+':last').append('<h3></h3>');
 		$('h3:last').append(company_name.replace('%cname%',work_experience["companies"][index]["Name"]));
 		$('.work-entry:last').append('<div class ="work-info row no-gutter"></div>');
-		$('.work-info:last').append('<div class = "col-xs-5 col-md-5 "></div>');
-		$('.work-info:last').append('<div class = "work-details col-md-6 col-xs-6"></div>');
+		$('.work-info:last').append('<div class = "col-xs-4 col-md-4 "></div>');
+		$('.work-info:last').append('<div class = "work-details col-md-8 col-xs-8"></div>');
 		$('.work-details:last').append('<div class = "work-items-list"></div>');
 		$('.work-items-list:last').append(company_details.replace('%role%',work_experience["companies"][index]["Role"]).replace('%location%',work_experience["companies"][index]["Location"]));
 		$('.work-items-list:last').append(contributions);
@@ -230,20 +230,21 @@ function create_work_experience_data(){
 		for (work_items = 0; work_items<work_experience["companies"][index]["Responsibilities"].length;work_items++){
 			$('.responsibility-list:last').append(single_responsibility.replace('%single_responsibility%',work_experience["companies"][index]["Responsibilities"][work_items]));
 		}
-		$('.work-items-list:last').append('<br><br>');
+		$('.work-items-list:last').append('<br>');
+		
 	}
-
-	$('.work-entry').fadeTo('slow', 0.5);
+	
 	//This is for the last dot
 
-	$('.work-experience-holder').append("<div class = 'work-entry'></div>");
-	$('.work-entry:last').append('<div class ="time-line row no-gutter"></div>');
-	$('.time-line:last').append('<div class = "tl-entry-last col-xs-5 col-md-5 "></div>');
+	$('.work-experience-holder').append("<div class = 'work-entry row no-gutter' id = "+index+"></div>");
+	$('.work-entry:last').append('<div class = "tl-entry-last col-xs-4 col-md-4"></div>');
 	$('.tl-entry-last:last').append('<h3></h3>');
 	$('h3:last').append('<span class = "outer-dot-last"></span>');
-	$('.time-line:last').append('<div class = "'+work_details_type+' col-md-6 col-xs-6"></div>');
+	$('.work-entry:last').append('<div class = "'+work_details_type+' col-md-7 col-xs-7"></div>');
+	$('.work-details-old').css({'border-left': '3px solid #aaa'});
 	$('.'+work_details_type+':last').append('<h3></h3>');
 
+	$('.work-entry').fadeTo('slow', 0.5);
 	
 }
 
@@ -279,13 +280,19 @@ function bindEduEvents() {
 
 function bindExperienceEvents(){
 		$('.work-experience-holder').on( 'mouseenter', '.work-entry', function(event){
-		var entry_id = this.id;
-		console.log('#'+entry_id);
-		$('#'+entry_id).fadeTo('slow',1);
+		var entry_id = parseInt(this.id,10);
+		$('#'+entry_id).fadeTo('fast',1);
 		
+		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,1)'});
+		if(entry_id !== 0){
+			$('.divider_extended_'+(entry_id)).css({'border-left-color': 'rgba(100,100,100,0.25)'});
+		}
+		if(entry_id === work_experience["companies"].length-1){
+			$('#'+(entry_id+1)).fadeTo('fast',1);
+		}
 	}).on('mouseleave', '.work-entry', function(event){
-		var entry_id = this.id;
-		$('#'+entry_id).fadeTo('slow',0.5);
+		$('.work-details-old').css({'border-left-color': '#aaa'});
+		$('.work-entry').fadeTo('fast', 0.5);
 	});
 }
 
