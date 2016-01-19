@@ -293,12 +293,21 @@ function bindExperienceEvents(){
 			//0.5
 		}
 		$('#'+entry_id).fadeTo('fast', 0.5);
-		//0.25
+		//0.5
 		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,0.5)'});
 
 	});
 }
 
+function bindScroller(){
+	$(window).on('scroll',function(){
+		//console.log(($(window).scrollTop()/($(document).height()-$(window).height())*100));	
+		$('#footer').css({'width':(($(window).scrollTop()/($(document).height()-$(window).height()))*100)+'%'});
+		$('.footer-block').css({'margin-left':(($(window).scrollTop()/($(document).height()-$(window).height()))*100)+'%'});
+		//console.log($(document).height());
+		//console.log($(window).height());
+	});
+}
 //functions for rendering the web page
 
 function set_up() {
@@ -319,6 +328,7 @@ function mobile_or_desktop(){
 	create_work_experience_data();
 	bindEduEvents();
 	bindExperienceEvents();
+	bindScroller();
 
 }
 

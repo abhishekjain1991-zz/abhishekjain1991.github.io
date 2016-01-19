@@ -232,6 +232,19 @@ h1{
     -o-transition: border-left-color 0.25s ease-in-out; /* Opera */
 }
 
+ #footer {    
+ 	position:fixed;    
+ 	bottom:0;
+ 	height:5px;      
+ 	background:#6cf;
+ 	display: block;
+ }
+
+ .footer-block{
+ 	position: fixed;
+ 	bottom: 5px;
+ }
+
 
 
 
