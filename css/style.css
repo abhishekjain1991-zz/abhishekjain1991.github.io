@@ -99,7 +99,6 @@ h1{
 	margin-top: 2%;
 } 
 
-
 .sub-section{
 	background: #ffffff; 
 	box-shadow: inset 0px 15px 30px 5px black;
@@ -144,8 +143,6 @@ h1{
 	padding-top: 0.5%;
 }
 
-
-
 .tl-entry{
 	height: 2.5em;
 	border-bottom: 3px dotted #F69A33;
@@ -175,6 +172,7 @@ h1{
     width: 40px;
     margin-right: -16.5px;
 }
+
 .outer-dot-last{
 
     height: 10px;
@@ -197,13 +195,15 @@ h1{
     margin-top: -2px;
 }
 
-.work-details-present{
+.work-place-name{
 	height: 1em;
-	margin-left:4px;
+	margin-left:-5px;
 }
+
 .company-name{
 	margin-left: 30px;
 }
+
 .work-details{
 	margin-top:19px;
 	margin-left:4px;
@@ -218,11 +218,6 @@ h1{
 
 }
 
-.work-details-old{
-	height: 1em;
-	margin-left: -5px;
-}
-
 .responsibility-list{
     list-style-position: inside;
     text-indent: -1em;
@@ -231,10 +226,10 @@ h1{
 
 /*Animate setting of border color for extended divider*/
 .divider {
-    transition: border-left-color 0.5s ease-in-out;
-    -moz-transition: border-left-color 0.5s ease-in-out; /* FF 4 */
-    -webkit-transition: border-left-color 0.5s ease-in-out; /* Safari & Chrome */
-    -o-transition: border-left-color 0.5s ease-in-out; /* Opera */
+    transition: border-left-color 0.25s ease-in-out;
+    -moz-transition: border-left-color 0.25s ease-in-out; /* FF 4 */
+    -webkit-transition: border-left-color 0.25s ease-in-out; /* Safari & Chrome */
+    -o-transition: border-left-color 0.25s ease-in-out; /* Opera */
 }
 
 

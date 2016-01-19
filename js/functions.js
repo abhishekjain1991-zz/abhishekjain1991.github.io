@@ -209,16 +209,9 @@ function create_work_experience_data(){
 		$('h3:last').append(time_in_company.replace('%time_span%',work_experience["companies"][index]["Time"]));
 		$('h3:last').append('<span class = "outer-dot"></span>');
 		$('.outer-dot:last').append('<span class = "inner-dot"></span>');
-		var work_details_type = "";
-		if(index === 0){
-			work_details_type = "work-details-present";
-		}
-		else{
-			work_details_type = "work-details-old";
-		}
-		$('.work-entry:last').append('<div class = "'+work_details_type+' col-md-7 col-xs-7 divider divider_extended_'+index+'"></div>');
-		$('.work-details-old').css({'border-left': '3px solid #aaa'});
-		$('.'+work_details_type+':last').append('<h3></h3>');
+		$('.work-entry:last').append('<div class = "work-place-name col-md-7 col-xs-7 divider divider_extended_'+index+'"></div>');
+		$('.divider_extended_'+index).css({'border-left': '3px solid #aaa'});
+		$('.work-place-name:last').append('<h3></h3>');
 		$('h3:last').append(company_name.replace('%cname%',work_experience["companies"][index]["Name"]));
 		$('.work-entry:last').append('<div class ="work-info row no-gutter"></div>');
 		$('.work-info:last').append('<div class = "col-xs-4 col-md-4 "></div>');
@@ -233,6 +226,7 @@ function create_work_experience_data(){
 		$('.work-items-list:last').append('<br>');
 		
 	}
+	$('.divider_extended_0').css({'border-left-color': 'rgba(0,0,0,0)'});
 	
 	//This is for the last dot
 
@@ -240,10 +234,11 @@ function create_work_experience_data(){
 	$('.work-entry:last').append('<div class = "tl-entry-last col-xs-4 col-md-4"></div>');
 	$('.tl-entry-last:last').append('<h3></h3>');
 	$('h3:last').append('<span class = "outer-dot-last"></span>');
-	$('.work-entry:last').append('<div class = "'+work_details_type+' col-md-7 col-xs-7"></div>');
-	$('.work-details-old').css({'border-left': '3px solid #aaa'});
-	$('.'+work_details_type+':last').append('<h3></h3>');
-
+	$('.work-entry:last').append('<div class = "work-place-name col-md-7 col-xs-7"></div>');
+	$('.work-place-name:last').css({'border-left': '3px solid #aaa'});
+	$('.work-place-name:last').append('<h3></h3>');
+	//This is for removing the upper divider from the first work-place-name
+	$('.divider_extended_0').css({'border-left-color': 'rgba(0,0,0,0)'});
 	$('.work-entry').fadeTo('slow', 0.5);
 	
 }
@@ -282,7 +277,6 @@ function bindExperienceEvents(){
 		$('.work-experience-holder').on( 'mouseenter', '.work-entry', function(event){
 		var entry_id = parseInt(this.id,10);
 		$('#'+entry_id).fadeTo('fast',1);
-		
 		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,1)'});
 		if(entry_id !== 0){
 			$('.divider_extended_'+(entry_id)).css({'border-left-color': 'rgba(100,100,100,0.25)'});
@@ -290,9 +284,18 @@ function bindExperienceEvents(){
 		if(entry_id === work_experience["companies"].length-1){
 			$('#'+(entry_id+1)).fadeTo('fast',1);
 		}
+		
 	}).on('mouseleave', '.work-entry', function(event){
-		$('.work-details-old').css({'border-left-color': '#aaa'});
-		$('.work-entry').fadeTo('fast', 0.5);
+		var entry_id = parseInt(this.id,10);
+		/*0.5*0.5 = 0.25*/
+		if(entry_id !== 0){
+			$('.divider_extended_'+(entry_id)).css({'border-left-color': 'rgba(100,100,100,0.5)'});
+			//0.5
+		}
+		$('#'+entry_id).fadeTo('fast', 0.5);
+		//0.25
+		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,0.5)'});
+
 	});
 }
 
