@@ -42,6 +42,7 @@ h1{
 	max-height: 30px;
 	margin-right: 0%;
 	margin-top: 0.65%;
+	opacity: 0.8;
 	
 	
 }
@@ -73,6 +74,7 @@ h1{
 	max-height: 45px;
 	margin-right: 0.5%;
 	padding-top: 0.3%;	
+	opacity:0.8; 
 }
 
 .experience-section-img{
@@ -80,6 +82,15 @@ h1{
 	max-height: 33px;
 	margin-right: 0.5%;
 	margin-top: 0.5%;
+
+}
+
+.skills-section-img{
+	max-width: 33px;
+	max-height: 30px;
+	margin-right: 0.5%;
+	margin-top: 0.75%;
+	opacity: 0.8;
 }
 
 .education-type-img{	
@@ -135,7 +146,7 @@ h1{
 	padding-top: 0.5%;
 }
 
-.my-experience{
+.my-experience, .my-skills{
 	border-bottom: 3px dotted #444;
 	margin-top: 1%;
 	margin-bottom: 1%;
@@ -155,30 +166,28 @@ h1{
 .tl-date{
 	background-color: white;
 	color:#F69A33;
-	padding-right: 1.5%;
-	padding-left: 5%;
-}
+	padding-right: 0.8%;
+	}
 
 .outer-dot, .outer-dot-last{
 	float:right;
 	background-color: #F9F6EE;
-    border: 6px solid #aaa;
-    border-radius: 50px;
-    margin-top: -6px;
-}
+    }
 
 .outer-dot{
+	border: 6px solid #aaa;
+	border-radius: 50px;
 	height: 40px;
     width: 40px;
-    margin-right: -16.5px;
+    margin-right: -16px;
+	margin-top: -6px;
 }
 
 .outer-dot-last{
-
-    height: 10px;
-    width: 10px;
-    float: right;
+	border: 5px solid #aaa;
+	border-radius: 50px;
     margin-right: -2px;
+    margin-top: -7px;
 
 }
 
@@ -240,174 +249,59 @@ h1{
  	display: block;
  }
 
- .footer-block{
- 	position: fixed;
- 	bottom: 5px;
- }
 
-
-
-
-
-/*.time-line{
-	overflow: hidden;
+.seperator { 
+	border-right: 1px dotted rgba(68, 68, 68, 1);
 }
 
-.timeline {
-    width: 90%;
-	margin: 30px 5%;
+
+.skill-bar{
+	margin-top: 10px;
+	background-color: #E2E2E2;
+	border-radius: 0 1.5em 1.5em 0em;
+	padding-left:0px;
+	padding-right: 0px;
+	
 }
 
-.timeline .timeline-item {
-    width: 100%;
+.skill-fill-container{
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 100%;
 }
 
-.timeline .timeline-item:after { 
-   content: " ";
-   display: block; 
-   height: 0; 
-   clear: both;
+.skill-fill{
+	background-color: #E74E60;
+	border-radius: 0 1.5em 1.5em 0em;
+	border-right: 15px;
+	border-left: 15px solid #444;
+	height: 100%;
 }
 
-.timeline .timeline-item .info, .timeline .timeline-item .year {
-    color: #B7B7B7;
-    display: block;
-    float:left;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    transition: all 1s ease;
-	cursor: pointer; cursor: hand;
-}
-.timeline .timeline-item.close .info, .timeline .timeline-item.close .year {
-    color: #B7B7B7;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    transition: all 1s ease;
-}
-.timeline .timeline-item .year {
-    font-size: 1.5em;
-    font-weight: bold;
-    width: 30%;
-	height: 1em;
+
+.skill{
+	margin-top: 0px;
+	padding-top: 10px;
+	color: white;
+	padding-left:5px;
+
 }
 
-.timeline .timeline-item.close .year, .timeline .timeline-item .year {
-	border-bottom: 3px dotted #B7B7B7;
+
+.skill-level-divider, .levels{
+	padding-left: 0px;
+	padding-right: 0px;
+
 }
 
-.timeline .timeline-item.active .year {
-	border-bottom: 3px dotted #F69A33;
+.skill-level-divider{
+	position: absolute;
+	z-index: 2;
+	padding-top: 49px;
 }
 
-.timeline .timeline-item .year .label {
-	display:inline-block;
-    height: 1.5em;
-    //background:#F9F6EE;
-	padding-right: 10px;
-}
-
-.timeline .timeline-item .info {
-    width: 70%;
-    margin-left: -2px;
-    padding: 0 0 50px 35px;
-    border-left: 6px solid #aaa;
-    font-size: 14px;
-    line-height: 40px;
-}
-
-.timeline .timeline-item .info  p{
-	font-family: Roboto, serif;
-}
-
-.timeline .timeline-item.last .info, .timeline .timeline-item.phantom .info {
-    padding: 0 0 0 35px;
-}
-
-.timeline .timeline-item .info h2{
-	margin: 0px;
-}
-
-.timeline .timeline-item .info span.action {
-	margin: 2px 0 0 10px; 
-	width: 20px; height: 20px;
-	display: inline-block;
-}
-
-.timeline .timeline-item.active .info span.expander {
-	background: url('../images/expand.png')  no-repeat left center;
-}
-
-.timeline .timeline-item .info span.expander {
-	background: url('../images/expand-out.png')  no-repeat left center;
-}
-
-.timeline .timeline-item.active .info span.collapser {
-	background: url('../images/collapse.png')  no-repeat left center;
-}
-
-.timeline .timeline-item .info span.collapser {
-	background: url('../images/collapse-out.png')  no-repeat left center;
-}
-
-.timeline .timeline-item .marker {
-    background-color: #F9F6EE;
-    border: 6px solid #aaa;
-    height: 40px;
-    width: 40px;
-    border-radius: 100px;
-    display: block;
-    float: right;
-    margin-right: -26px;
-    z-index: 2000;
-    position: relative;
-}
-
-.timeline .timeline-item.phantom .marker{
-	/* display: none; */
-	/*float: none;
-}
-
-.timeline .timeline-item.active .info, .timeline .timeline-item:hover .info {
-    color: #444;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    transition: all 1s ease;
-}
-.timeline .timeline-item.active .year, .timeline .timeline-item:hover .year {
-    color: #F69A33;
-}
-.timeline .timeline-item .marker .dot {
-    background-color: white;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    transition: all 1s ease;
-    display: block;
-    border: 4px solid white;
-    height: 32px;
-    width: 32px;
-    border-radius: 100px;
-    float: right;
-    z-index: 2000;
-    position: relative;
-}
-.timeline .timeline-item.active .marker .dot, .timeline .timeline-item:hover .marker .dot {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    transition: all 1s ease;
-    background-color: #F69A33;
-    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.timeline .timeline-item  .small-dot {
-	background-color: #aaa;
-    border: 4px solid #aaa;
-    height: 5px;
-    width: 5px;
-    border-radius: 20px;
-    float: left;
-    z-index: 2000;
-    position: relative;
-	left: -45px;
+.level{
+	text-align: center;
 }
 
 
@@ -567,7 +461,7 @@ div.skill {
 	border-right: 1px dotted rgba(68, 68, 68, .5);
     -webkit-background-clip: padding-box; /* for Safari */
     /*background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
-}
+//}
 /*
 .skills-separator-label {
 	color: #444; 

@@ -64,10 +64,12 @@ var work_experience = {
 		Time: "Present - Jun 2015",
 		Role: "Software Engineer",
 		Responsibilities: ["Learn about and enhance Cisco's IOS-XR OS for the new NCS-5500 series router.",
-		"Add new Clis to show and visualize router stats.","Create a new packet decoding library using Cython and C to decode live packets.",
-		"Create a high-speed packet-filter to filter out packets from high-speed traffic flows.",
-		"Understand and enhance the driver code.","Created scripts to directly programme the router hardware.",
-		"Automate the procedure of creating upgrade packages and sending it to the Software Test Engineer that required the upgrade package."],
+		"Add new Clis (Command Line Interfaces) to show and visualize router stats.",
+		"Create low latency and efficient software libraries for packet decoding and filtering.",
+		"Understanding and enhancing the driver code",
+		"Creating scripts that directly interact and program the router hardware.",
+		"Automating the procedure of creating and distribution of upgrade packages to Software Test Engineers.",
+		"Simplifying and automating the process of  committing and maintaining the codebase"],
 		Languages_used:"C, Python, Cyhton",
 		Location:"San Jose, California, United States"
 	},
@@ -115,6 +117,17 @@ var work_experience = {
 	]
 }
 
+var skills = {
+	"C":3,
+	"C++":3,
+	"Python":3,
+	"Java":2,
+	"HTML":3,
+	"CSS":3,
+	"JavaScript":2,
+	"jQuery":2
+
+}
 // Variables to format the above web-page data 
 
 var education_type = '<div class = "education-level col-md-6 col-xs-6" id = "%type%"></div>';
@@ -134,26 +147,6 @@ var single_responsibility = '<li>%single_responsibility%</li>';
 
 
 //Functions for creating the data
-
-function about_me_mobile()
-{
-	$('.me-points').hide('fast');
-	$('.my-intro').append("<a href='#my-id-intro' class = 'more-button'>...more</a>");
-	$('.more-button').css({'color':'#18919a',"text-decoration":"none","padding-bottom":"0","font-family":"Roboto, serif","font-size":"0.90em","padding-left":"0.50em"});
-	$('#some-day').append("<a href='#my-id-intro' class = 'less-button'>...less</a>");
-	$('.less-button').css({'color':'#18919a',"text-decoration":"none","font-size":"1.25em","display":"block"});
- 	$('.more-button').on("click",function() {			
-		$('.me-points').show('slow');
-		$('.more-button').hide('slow');
-		$('less-button').show('slow');			
-	});
-
-	$('.less-button').on("click",function() {	
-		$('.me-points').hide('slow');
-		$('.more-button').show('slow');
-	});
-}
-
 
 function create_education_type_subsection(index, type){
 	$(".education-holder").append('<div class = "sub-section '+type+'-section row"></div>');
@@ -237,20 +230,60 @@ function create_work_experience_data(){
 	$('.work-entry:last').append('<div class = "work-place-name col-md-7 col-xs-7"></div>');
 	$('.work-place-name:last').css({'border-left': '3px solid #aaa'});
 	$('.work-place-name:last').append('<h3></h3>');
+	
 	//This is for removing the upper divider from the first work-place-name
 	$('.divider_extended_0').css({'border-left-color': 'rgba(0,0,0,0)'});
 	$('.work-entry').fadeTo('slow', 0.5);
 	
 }
 
+
+function create_skills_data(){
+	var skills_array  = Object.keys(skills)
+	var skill_wrapper_number;
+	var skill_level;
+	var skill_count = 0;
+	for (var index = 0; index<skills_array.length;index++){
+		skill_wrapper_number = index%2;
+		skill_level = parseInt(skills[skills_array[index]],10)*3;
+		$(".skill-set-diagram-"+parseInt(skill_wrapper_number,10)).append("<div class = 'skill-bar col-md-12 col-xs-12'><div class = 'skill-fill-container col-md-"+skill_level+" col-xs-"+skill_level+"'><div class ='skill-fill'><h4 class ='skill'>"+skills_array[index]+"</h4></div></div></div>");
+		skill_count++;
+	}
+
+	//all this is being done to calculate height of the dotted seperators 
+	
+	var height_of_skill_bar = $('.skill-bar').height();
+	if(skill_count%2){
+		skill_count = skill_count/2 + 1;
+	}else{
+		skill_count = skill_count/2;
+	}
+	$('.seperator').css({'padding-bottom':(((height_of_skill_bar+10)*skill_count)-10)+'px'});
+}
+
+
+
+
+
 //functions for creating the event handlers
 
-function bindAboutEvents() {
+function bindAboutEvents(mobile) {
+	
+	if (mobile){
+		$('.me-points').hide('fast');			
+	}
+	
 	var onHover = function() {
 			$('.my-picture').fadeTo('slow', 1);
+			if (mobile){
+				$('.me-points').show('fast');
+			}
 			
 	}, onHoverOut = function() {
 			$('.my-picture').fadeTo('slow', 0.7);
+			if (mobile){
+				$('.me-points').hide('fast');			
+			}	
 	};
 	
 	$('.about-info').hover(onHover, onHoverOut);
@@ -274,8 +307,11 @@ function bindEduEvents() {
 }
 
 function bindExperienceEvents(){
-		$('.work-experience-holder').on( 'mouseenter', '.work-entry', function(event){
+	$('.work-experience-holder').on( 'mouseenter', '.work-entry', function(event){
 		var entry_id = parseInt(this.id,10);
+		if(entry_id === work_experience["companies"].length){
+			return;
+		}
 		$('#'+entry_id).fadeTo('fast',1);
 		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,1)'});
 		if(entry_id !== 0){
@@ -295,51 +331,57 @@ function bindExperienceEvents(){
 		$('#'+entry_id).fadeTo('fast', 0.5);
 		//0.5
 		$('.divider_extended_'+(entry_id+1)).css({'border-left-color': 'rgba(100,100,100,0.5)'});
+		if(entry_id === work_experience["companies"].length-1){
+			$('#'+(entry_id+1)).fadeTo('fast',0.5);
+		}
 
 	});
+}
+
+function bindSkillEvents(){
+	var onHover = function() {
+		$('.skill-fill').css({'width':'0'});
+			$('.skill-fill').animate({ 'width': '100%' }, 500);
+	}, onHoverOut = function() {
+		
+	};
+
+	$('.skills-holder').hover(onHover, onHoverOut);
 }
 
 function bindScroller(){
-	$(window).on('scroll',function(){
-		//console.log(($(window).scrollTop()/($(document).height()-$(window).height())*100));	
+	$(window).on('scroll',function(){	
 		$('#footer').css({'width':(($(window).scrollTop()/($(document).height()-$(window).height()))*100)+'%'});
 		$('.footer-block').css({'margin-left':(($(window).scrollTop()/($(document).height()-$(window).height()))*100)+'%'});
-		//console.log($(document).height());
-		//console.log($(window).height());
 	});
 }
+
+
+
 //functions for rendering the web page
 
 function set_up() {
 	$.preload( 'images/biopic.jpg', 'images/bachellors-icon.png', 'images/graduation-icon.png','images/online.png');
 	$('.my-picture').fadeTo('slow', 0.7);
 }
-
-function mobile_or_desktop(){
-	
-	var mql = window.matchMedia("screen and (max-width: 992px)");
-	if (mql.matches){
-		about_me_mobile();
-	}
-	else{
-		bindAboutEvents();
-	}
-	create_education_details();
-	create_work_experience_data();
-	bindEduEvents();
-	bindExperienceEvents();
-	bindScroller();
-
-}
-
-
+  
 function initalize() {
 	
 	set_up();
-	mobile_or_desktop();
-			/*bindTimelineEvents();
-	bindSkillsEvents();
-	bindLikesEvents();*/
+	var mobile = false;
+	//to find out whether the site is being rendered on a mobile device or on a big screen
+	var mql = window.matchMedia("screen and (max-width: 992px)");
+	if (mql.matches){
+		mobile = true;
+	}
+	bindAboutEvents(mobile);
+	create_education_details();
+	create_work_experience_data();
+	create_skills_data();
+	bindEduEvents();
+	bindExperienceEvents();
+	bindSkillEvents()
+	bindScroller();
 	
 }
 
