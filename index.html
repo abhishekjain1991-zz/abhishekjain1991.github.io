@@ -14,15 +14,17 @@ Check out Mrs. Olga Yasovsky's amazing work here http://yasovsky-ol.ga/.
 		<meta name="description" content="Abhishek Jain&#39;s interactive resume. Abhishek Jain is a Software Developer currently working at Cisco in San Jose.">
         <meta name="author" content="Abhishek Jain"> 
         <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 		<script type="text/javascript" src="./js/jquery.min.js"></script>
 		<script type="text/javascript" src="./js/jquery.preload.min.js"></script>
 		<script type="text/javascript" src="./js/functions.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="./css/style.css">	
 </head>
 
     <body>
 		<div id="main" class ="container">
+		<div id = "Intro">
 			<div class="title row">
 				<div class="mainTitle row">
 				<h1>Abhishek Jain</h1>
@@ -31,9 +33,12 @@ Check out Mrs. Olga Yasovsky's amazing work here http://yasovsky-ol.ga/.
 					<h2>Software Developer</h2>
 				</div>
 			</div>
+		</div>
+		<br>
+		<div id = "Subintro">
 			<div class = "row about-me-header no-gutter">
 				<img src="./images/bulb.png" class="img-responsive col-md-2 col-xs-2 about-me-img" alt= "Idea Image">
-				<div class = "col-md-10 col-xs-10 about-me-text">ABOUT ME</div>
+				<div class = "col-md-10 col-xs-10 section-header-text">ABOUT ME</div>
 			</div>
 			<div class="row about-info">
 				<img class="my-picture img-responsive col-md-4 col-md-push-8" src="./images/biopic.jpg" alt="This is a picture of me">
@@ -46,22 +51,31 @@ Check out Mrs. Olga Yasovsky's amazing work here http://yasovsky-ol.ga/.
 					</div>					
 				</div>
 			</div>
+		</div>
+		<br>
+		<div id = "Edu">
 			<div class = "my-education row no-gutter">
 				<img src="./images/education-icon.png" class="img-responsive col-md-2 col-xs-2 education-section-img" alt= "Books Image">
-				<div class = "col-md-10 col-xs-10 education-text">EDUCATION</div>
+				<div class = "col-md-10 col-xs-10 section-header-text">EDUCATION</div>
 			</div>
 			<div class="education-holder">
 			</div>
+		</div>
+		<br>
+		<div id = "Experience">
 			<div class = "my-experience row no-gutter">
 				<img src="./images/work-icon.png" class="img-responsive col-md-2 col-xs-2 experience-section-img" alt= "Work Image">
-				<div class = "col-md-10 col-xs-10 education-text">EXPERIENCE</div>
+				<div class = "col-md-10 col-xs-10 section-header-text">EXPERIENCE</div>
 			</div> 
 			<div class = "work-experience-holder">
 			</div>
+		</div>
+		<br>
+		<div id = "Skillset"> 
 			<div class = "my-skills row no-gutter">
 				<img src="./images/skills-icon.png" class="img-responsive col-md-2 col-xs-2 skills-section-img" alt= "Skills Image">
-				<div class = "col-md-10 col-xs-10 education-text">SKILLS</div>
-			</div> 
+				<div class = "col-md-10 col-xs-10 section-header-text">SKILLS</div>
+			</div>
 			<div class="skills-holder">
 				<div class = "row no-gutter">
 					<div class = "skills-wrapper-0 col-md-5 col-xs-5">
@@ -85,7 +99,7 @@ Check out Mrs. Olga Yasovsky's amazing work here http://yasovsky-ol.ga/.
 								<div class = 'col-md-3 col-xs-3 level-value'><h4 class = "level">Beginner</h4></div>
 								<div class = 'col-md-3 col-xs-3 level-value'><h4 class = "level">Familiar</h4></div>
 								<div class = 'col-md-3 col-xs-3 level-value'><h4 class = "level">Proficient</h4></div>
-								<div class = 'col-md-3 col-xs-3 level-value'><h4 class = "level">Master</h5></div> 
+								<div class = 'col-md-3 col-xs-3 level-value'><h4 class = "level">Master</h4></div> 
 						</div>
 						<div class = "skill-level-divider col-md-12 col-xs-12">
 								<div class = "col-md-3 col-xs-3 seperator"></div>
@@ -96,8 +110,20 @@ Check out Mrs. Olga Yasovsky's amazing work here http://yasovsky-ol.ga/.
 						<div class = "skill-set-diagram-1"></div>
 					</div>
 				</div>
+				<br>
 			</div>
 		</div>
+		<br>
+		<div id = "Places">
+			<div class = "my-skills row no-gutter">
+				<img src="./images/map-icon.png" class="img-responsive col-md-2 col-xs-2 map-section-img" alt= "Map Image">
+				<div class = "col-md-10 col-xs-10 section-header-text">WHERE I'VE LIVED AND WORKED</div>
+			</div> 
+			<div id = "mapDiv">
+			</div>
+		</div>
+		<br>
+	</div>
 		<div id="footer"></div>
 		<script>
 			$( document ).ready(function() {

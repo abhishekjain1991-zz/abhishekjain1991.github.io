@@ -3,16 +3,30 @@ body {
 	font-family: Oswald, serif;
 	color: #444;
 	cursor: default;
+	background-color: #eee;
 }
 
 .title{
 	text-align: center;
-	border-bottom: 3px solid #444;
 }
 
 h1{
 	font-size: 5em;
 	font-weight: normal;
+}
+
+#Edu, #Intro, #Experience, #Skillset, #Places, #Subintro{
+    box-shadow: 0px 0px 5px 2px grey;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fff;
+
+}
+
+#Intro{
+	margin-top: 10px;
 }
 
 .sub-title {
@@ -31,7 +45,7 @@ h1{
 }
 
 .my-education{
-	border-bottom: 3px dotted #444;
+	border-bottom: 3px solid #444;
 	margin-top: 1%;
 	margin-bottom: 1%;
 
@@ -47,14 +61,11 @@ h1{
 	
 }
 
-.about-me-text, .education-text{
+.section-header-text{
 	font-size: 220%;
 	font-weight: normal;
 }
 
-.about-info{
-	border-bottom: 3px solid #444;
-}
 
 .me-points{
 	font-family: Roboto, serif;
@@ -90,6 +101,14 @@ h1{
 	max-height: 30px;
 	margin-right: 0.5%;
 	margin-top: 0.75%;
+	opacity: 0.8;
+}
+
+.map-section-img{
+	max-width: 35px;
+	max-height: 35px;
+	margin-right: 0.5%;
+	margin-top: 0.5%;
 	opacity: 0.8;
 }
 
@@ -142,15 +161,14 @@ h1{
 }
 
 .about-me-header{
-	border-bottom: 3px dotted #444;
+	border-bottom: 3px solid #444;
 	padding-top: 0.5%;
 }
 
 .my-experience, .my-skills{
-	border-bottom: 3px dotted #444;
+	border-bottom: 3px solid #444;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	border-top: 3px solid #444;
 	padding-top: 0.5%;
 }
 
@@ -276,6 +294,8 @@ h1{
 	border-right: 15px;
 	border-left: 15px solid #444;
 	height: 100%;
+	/*This somehow fixes the rendering issues on Firefox*/
+	padding-bottom: 0.1px;
 }
 
 
@@ -304,283 +324,9 @@ h1{
 	text-align: center;
 }
 
-
-/*
-.title, .content {
-	width: 65%;
-    margin: 0 auto;
+/* this is necessary for the map to render*/
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
 }
-
-.title {
-	text-align: center; 
-}
-
-.title  div.mainTitle h1{
-	font-size: 5em;
-	font-weight: normal;
-	margin: 0px;
-	border-bottom: 3px solid #444;
-}
-
-.title  div.subTitle h2{
-	font-size: 1.5em;
-	
-	
-}
-
-.content {
-	padding: 10px 0;
-	border-bottom: 3px solid #444;
-}
-
-.content.last{
-	padding-bottom: 80px;
-}
-
-.content .content-category , .content .content-sub-category{
-	font-size: 2em;
-	border-bottom: 2px dotted #444;
-}
-
-.content .content-sub-category , .content .content-sub-info{
-	width: 45%;
-	display: inline-block;
-	padding-right: 20px;
-	margin-right: 20px;
-}
-
-.content .content-sub-category:nth-of-type(1) {
-    float:left;
-}
-
-.content .content-sub-category:nth-of-type(2) {
-    float:right;
-} 
-
-.content .content-sub-category  .content-icon{
-	float: none;
-}
-
-.content .content-info {
-	font-size: 1em;
-	padding: 10px 0;
-}
-.content-icon {
-	display: inline-block;
-	padding-right: 10px;
-	float: left;
-}
-
-.content-desc {
-	width: 100px;
-	height: 100px;
-}
-.content-text {
-	padding: 10px 5px;
-}
-
-.content-desc-text {
-	font-size: 0.9em;
-	font-family: Roboto, serif;
-	padding: 10px 0 30px 0;
-}
-
-.content-desc-additional {
-	display: none;
-	font-size: 0.8em;
-	font-family: Roboto, serif;
-}
-
-div.skill {
-	height: 73px;
-}
-
-#main ul {
-	list-style: none;
-    line-height: normal;
-}
-
-#main li
-{
-    padding-left: 60px;
-    list-style-type: none;
-    display: table-cell;
-    vertical-align: middle;
-	width: 60%;
-}
-
-.skills-container {
-	margin-top: 20px;
-	color: #fff;
-	display: inline-block;
-	width: 49%;
-}
-
-.skills-container:first-child{
-	margin-right: 12px;
-}
-.skills-container.left {
-	padding-right: 10%;
-}
-
-.skills-container .skill-bar {
-	background: #E2E2E2;
-	width: 400px;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0 0.5em 0.5em 0;
-	border-radius: 0 1.5em 1.5em 0;
-}
-
-.skills-container .skill-fill {
-	background: #E74E60;
-	margin-bottom: 15px;
-	padding: 5px;
-	font-size: 1.2em;
-	color: #ffffff;
-	border-left: 20px solid #444;
-	width: 0px;
-	height: 40px;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0 0.5em 0.5em 0;
-	border-radius: 0 1.5em 1.5em 0;
-}
-	
-.skills-container .rating {
-	display: none;
-}
-
-.skills-wrapper {
-	position: relative;
-	top: 0px;
-	left: 0px;
-}
-
-.skills-separator {
-	position: absolute; 
-	height: 0px;
-	border-right: 1px dotted rgba(68, 68, 68, .5);
-    -webkit-background-clip: padding-box; /* for Safari */
-    /*background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
-//}
-/*
-.skills-separator-label {
-	color: #444; 
-	position: absolute;
-	top: -1.5em;
-}
-
-#about-icon {
-	background: url(../images/about.png) no-repeat left center;
-	width: 40px;
-	height: 40px;
-}
-
-#edu-icon {
-	background: url(../images/edu.png) no-repeat left center;
-	width: 50px;
-	height: 40px;
-}
-
-#exp-icon {
-	background: url(../images/exp.png) no-repeat left center;
-	width: 40px;
-	height: 35px;
-}
-
-#skills-icon {
-	background: url(../images/skills.png) no-repeat left center;
-	width: 40px;
-	height: 39px;
-}
-
-#likes-icon {
-	background: url(../images/likes.png) no-repeat left center;
-	width: 40px;
-	height: 35px;
-}
-
-#contact-icon {
-	background: url(../images/contact.png) no-repeat left center;
-	width: 40px;
-	height: 35px;
-}
-
-#edu1-icon {
-	background: url(../images/edu1.png) no-repeat left center;
-}
-
-#edu2-icon {
-	background: url(../images/edu2.png) no-repeat left center;
-	margin-top: 9px;
-}
-
-.likes-item {
-	display: inline-block;
-	position: relative;
-	width: 80px;
-	padding-left: 10px;
-}
-
-.likes-item a .cat-txt {
-	text-decoration: underline;
-}
-
-.likes-item  .cat-img, .likes-item  .cat-txt{
-	float: left;
-	clear: left;
-	width: 80px;
-	text-align: center;
-}
-
-#contact {
-	padding: 20px;
-	position: absolute;
-	
-}
-
-.contact-item {
-	width: 100%;
-	margin: 0 50px;
-	padding: 10px;
-	position: relative;
-	top: 0px;
-}
-
-.cont-txt {
-	position: absolute;
-	top: 35px;
-	padding-left: 20px;
-}
-
-a.link , .underline {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-.edu-icon {
-	width: 100px;
-	height: 100px;
-	opacity: 0.5;
-}
-
-.edu-item {
-	display: table-cell; 
-	width: 50%;
-	font-size: 1.2em;
-	padding: 10px 0 5px 0;
-	padding-right: 50px;
-}
-
-.likes-icon {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	float: left;
-}
-
-.likes-text {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	float: left;
-}*/
